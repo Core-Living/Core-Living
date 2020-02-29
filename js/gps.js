@@ -16,6 +16,5 @@ function GPS()
 			}
 			});	
 		}
-		console.log( Notification.permission);
 	}
 }
