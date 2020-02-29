@@ -37,27 +37,14 @@ window.addEventListener('appinstalled', function(evt){
 
 let newGPS = new GPS();
 window.onload = function(){
-	
-	if ("geolocation" in navigator) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		});
-		newGPS.update();
-	} 
-	else {
-	 /*geolocation IS NOT available*/ 
-	}
-	
-    if(pwaSupport){
-        let p = navigator.platform;
-        if(p === 'iPhone' || p === 'iPad' || p === 'iPod'){
-            if(!navigator.standalone){
-                let lastShown = parseInt(localStorage.getItem('lastShown'));
-                let now = new Date().getTime();
-                if(isNaN(lastShown) || (lastShown + 1000*60*60*24*7) <= now){
-                    document.getElementById('instructions').style.display = 'block';
-                    localStorage.setItem('lastShown', now);
-                }
-            }
-        }
-    }
+	setInterval(()=>{ 
+		if ("geolocation" in navigator) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				newGPS.update();
+			});
+		} 
+		else {
+		 /*geolocation IS NOT available*/ 
+		}
+	}, 30000);
 };
