@@ -25,7 +25,6 @@ function hidePrompt(){
 
 function installApp(){
     hidePrompt();
-    installEvt.prompt();
     installEvt.userChoice.then(function(result){
     });
 }
