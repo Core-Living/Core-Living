@@ -1,8 +1,8 @@
 from myMap import myMap
 import user
 import random
+import os
 
-userMap = myMap()
 
 def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", userHeight = -1, userWeight = -1):
 	userNameList = list(userLastName+userFirstName)
@@ -12,8 +12,7 @@ def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", us
 	random.seed(seed)
 	newUserId = random.randint(1000000, 9999999)
 	userFullName = userLastName + ',' + userFirstName
-	userMap.insert(newUserId, userFirstName)
-	with open(str(newUserId)+".txt", 'w') as file:
+	with open(os.path.join(os.getcwd(), "usrs/") + str(newUserId) +'.txt', 'w') as file:
 		file.write(str(newUserId)+'\n')
 		file.write(userFirstName + ' ')
 		file.write(userLastName + '\n')
@@ -22,5 +21,5 @@ def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", us
 		file.write(str(userHeight) + '\n')
 		file.write(str(userWeight) + '\n')
 		file.write("#")
-	file.close()
+		file.close()
 	return
