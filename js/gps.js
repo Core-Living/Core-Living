@@ -2,7 +2,7 @@ function GPS()
 {
 	this.currentLat = null;
 	this.currentLong = null;
-	this.diistance = 0;
+	this.distance = 0;
 	this.state = null;
 	this.update = () =>
 	{
