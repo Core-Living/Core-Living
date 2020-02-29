@@ -17,11 +17,11 @@ let installEvt;
 window.addEventListener('beforeinstallprompt', function(evt){
     installEvt = evt;
     evt.preventDefault();
-    document.getElementById('addToHomeScreen').style.display = 'block';
+    //document.getElementById('addToHomeScreen').style.display = 'block';
 });
 
 function hidePrompt(){
-    document.getElementById('addToHomeScreen').style.display = 'none';
+    //document.getElementById('addToHomeScreen').style.display = 'none';
 }
 
 function installApp(){
