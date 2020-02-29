@@ -1,4 +1,3 @@
-from myMap import myMap
 import user
 import random
 import os
@@ -57,3 +56,4 @@ def getUserInfo(userIDNumber, userDataField = '-1'):
 	
 # idNum = makeNewUser("Kevin", "Hogan", 21, "M", 75, 163)
 # print(getUserInfo(str(idNum), 'age'))
+
