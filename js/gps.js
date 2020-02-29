@@ -28,6 +28,7 @@ function GPS()
 				document.querySelector('#oldlat').textContent = this.currentLat;
 				document.querySelector('#newlong').textContent = position.coords.longitude;
 				document.querySelector('#newlat').textContent = position.coords.latitude;
+				document.querySelector('#distance').textContent = d;
 				console.log("here");
 				this.currentLat = position.coords.latitude;
 				this.currentLong = position.coords.longitude;
