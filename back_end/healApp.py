@@ -1,8 +1,7 @@
-from myMap import myMap
 import user
 import random
-
-userMap = myMap()
+import os
+import json
 
 def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", userHeight = -1, userWeight = -1):
 	userNameList = list(userLastName+userFirstName)
@@ -12,15 +11,20 @@ def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", us
 	random.seed(seed)
 	newUserId = random.randint(1000000, 9999999)
 	userFullName = userLastName + ',' + userFirstName
-	userMap.insert(newUserId, userFirstName)
-	with open(str(newUserId)+".txt", 'w') as file:
-		file.write(str(newUserId)+'\n')
-		file.write(userFirstName + ' ')
-		file.write(userLastName + '\n')
-		file.write(str(userAge) + '\n')
-		file.write(userGender + '\n')
-		file.write(str(userHeight) + '\n')
-		file.write(str(userWeight) + '\n')
-		file.write("#")
-	file.close()
+	jsonData = {}
+	jsonData["users"] = []
+	jsonData["users"].append({
+		'userID': str(newUserId),
+		'lastName': userLastName,
+		'firstName': userFirstName,
+		'age': str(userAge),
+		'gender': userGender,
+		'height-inches': str(userHeight),
+		'weight-pounds': str(userWeight)
+	})
+	with open(os.path.join(os.getcwd(), "usrs/") + str(newUserId) +'.txt', 'w') as file:
+		json.dump(jsonData, file)
+		file.close()
 	return
+
+makeNewUser("Kevin", "Hogan", 21, "Male", 75, 165)
