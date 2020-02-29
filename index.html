@@ -7,6 +7,7 @@
         <meta name="description" content="Core Living">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="manifest.json">
+        <script src="https://kit.fontawesome.com/a9f6f86574.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
@@ -29,11 +30,31 @@
 			<button class="btn btn-sm btn-outline-warning" type="button">Friends</button>
 		  </form>
 		</nav>
-		<p id="oldlong"></p>
-		<p id="oldlat"></p>
-		<p id="newlong"></p>
-		<p id="newlat"></p>
-		<p id="distance"></p>
+        <div class="container-fluid">
+          <div class="row bg-light">
+            <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                <div class="card-header card-header-success">
+                  <h3 id="workoutTimer">0h 0m 0s</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-12">
+              <div class="card ">
+                <div class="card-header card-header-warning">
+                  <h3 id="distance">0.00 Miles</h3>
+                </div>
+              </div>
+            </div>
+			</div>
+			<div class="row justify-content-center bg-light">
+				<a class="col-lg-1 col-md-3" id="pauseWorkingOut" ><i class="fas fa-4x fa fa-pause"></i></a>
+				<a class="col-lg-1 col-md-3" id="stopWorkingOut" ><i class="fas fa-4x fa fa-stop"></i></a>
+				<a class="col-lg-1 col-md-3" id="startWorkingOut" ><i class="fas fa-4x fa fa-play"></i></a>
+			</div>
+			<div class="row justify-content-center bg-dark">
+			</div>
+		</div>
     </body>
 	<script src="js/gps.js"></script>
 	<script src="js/main.js"></script>
