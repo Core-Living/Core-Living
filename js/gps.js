@@ -12,7 +12,7 @@ function GPS()
 			{
 				if(this.currentLat != null && this.currentLong != null)
 				{
-					let R = 6371e3; // metres
+					let R = 6371000; // metres
 					let lat1Rad = this.currentLat.toRadians();
 					let lat2Rad = position.coords.latitude.toRadians();
 					let sub1Rad = (position.coords.latitude - this.currentLat).toRadians();
