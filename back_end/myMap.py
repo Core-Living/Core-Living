@@ -2,29 +2,28 @@
 #
 class myMap:
 	class Node:
-		def __init__(self, Key = None, Value = None, Left = None, Right = None):
+		def __init__(self, Key = None, Value = "None", Left = None, Right = None):
 			self.Key = Key
 			self.Value = Value
 			self.Left = Left
 			self.Right = Right
-		def __init__(self, Key = None, Value = None):
-			self.Root = Node(Key, Value)
+	def __init__(self, Key = None, Value = "None"):
+		self.Root = self.Node(Key, Value)
 	
-	def _insert(curNode, newKey, newVal):
-		# if we find the key, insert
+	def _insert(self, curNode, newKey, newVal):
 		if curNode.Key == None:
-			curNode.Key = newIdNum
+			curNode.Key = newKey
 			curNode.Value = newVal
 			curNode.Left = None;
 			curNode.Right = None;
 			return
 		elif Key < curNode.Key: #we go left
-			_insert(curNode.Left, newKey)
+			_insert(curNode.Left, newKey, newVal)
 		else:
-			_insert(curNode.Right, newKey)
+			_insert(curNode.Right, newKey, newVal)
 
-	def insert(newKey, newVal):
-		_insert(this.Root, newKey, newVal)
+	def insert(self, newKey, newVal):
+		self._insert(self.Root, newKey, newVal)
 	
 	
 	def _find(curNode, newKey):
