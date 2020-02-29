@@ -12,7 +12,7 @@ if('serviceWorker' in navigator){
     });
 }
 
-var installEvt;
+let installEvt;
 window.addEventListener('beforeinstallprompt', function(evt){
     installEvt = evt;
     evt.preventDefault();
@@ -25,8 +25,10 @@ function hidePrompt(){
 
 function installApp(){
     hidePrompt();
-    installEvt.userChoice.then(function(result){
-    });
+	if (installEvt !== undefined) {
+		installEvt.userChoice.then(function(result){
+		});
+	}
 }
 
 window.addEventListener('appinstalled', function(evt){
@@ -34,11 +36,11 @@ window.addEventListener('appinstalled', function(evt){
 
 window.onload = function(){
     if(pwaSupport){
-        var p = navigator.platform;
+        let p = navigator.platform;
         if(p === 'iPhone' || p === 'iPad' || p === 'iPod'){
             if(!navigator.standalone){
-                var lastShown = parseInt(localStorage.getItem('lastShown'));
-                var now = new Date().getTime();
+                let lastShown = parseInt(localStorage.getItem('lastShown'));
+                let now = new Date().getTime();
                 if(isNaN(lastShown) || (lastShown + 1000*60*60*24*7) <= now){
                     document.getElementById('instructions').style.display = 'block';
                     localStorage.setItem('lastShown', now);
