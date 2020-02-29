@@ -3,7 +3,7 @@ var pwaSupport = false;
 if('serviceWorker' in navigator){
     pwaSupport = true;
     //register the service worker
-    navigator.serviceWorker.register('../sw.js').then(function(result){
+    navigator.serviceWorker.register('sw.js').then(function(result){
         if('Notification' in window){
             Notification.requestPermission(function(status){
             });
