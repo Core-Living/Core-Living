@@ -17,7 +17,7 @@ function alarm() {
     // osci.frequency.value = 780
     // osci.connect(gain)
     var request = new XMLHttpRequest();
-    var audFile = "alarm.mp3";
+    var audFile = "../assets/audio/alarm.mp3";
     request.open('GET', audFile, true);
     request.responseType = 'arraybuffer';
 
