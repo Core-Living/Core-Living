@@ -1,0 +1,18 @@
+Health App:
+- Customizable Bitmoji Avatars
+- Non-toxic Social Communication
+- Private Data/Life-Style Option
+- Step Tracker
+- Exercise Suggester
+- Calorie Counter
+- Food Suggestions and Recipes for the Suggestions
+- Option for Adding Health Coaches
+- GPS Location Maps Integration
+- Tracks Items in Fridge and that Determines What Recipes will work?
+- Adds and Removes Food Items to Shopping List
+- Water Reminder
+- Camera Features for Photos
+- Criminal Alert Safety Alarm?
+- Fitness Goal Setter and Cosmetic Reward System
+- Take Into Account Illness and Fatigue?
+- Share Short Term Goals like Quitting Smoking, Dieting, and such

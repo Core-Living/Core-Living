@@ -23,5 +23,3 @@ def makeNewUser(userFirstName, userLastName, userAge = -1, userGender = "-1", us
 		file.write("#")
 		file.close()
 	return
-
-makeNewUser("Kevin", "Hogan", 21, "Male", 75, 165)
