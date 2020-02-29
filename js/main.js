@@ -1,4 +1,5 @@
-var pwaSupport = false;
+
+let pwaSupport = false;
 
 if('serviceWorker' in navigator){
     pwaSupport = true;
@@ -34,7 +35,18 @@ function installApp(){
 window.addEventListener('appinstalled', function(evt){
 });
 
+let newGPS = new GPS();
 window.onload = function(){
+	
+	if ("geolocation" in navigator) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		});
+		newGPS.update();
+	} 
+	else {
+	 /*geolocation IS NOT available*/ 
+	}
+	
     if(pwaSupport){
         let p = navigator.platform;
         if(p === 'iPhone' || p === 'iPad' || p === 'iPod'){

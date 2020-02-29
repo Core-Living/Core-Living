@@ -6,14 +6,13 @@
         <title>NCC Computer Science</title>
         <meta name="description" content="NCC Computer Science Progressive Web App">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/main.js"></script>
         <link rel="manifest" href="manifest.json">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <div class="main-container">
+        <div class="main-container d-none">
             <div class="main wrapper clearfix">
-                <section id="addToHomeScreen">
+                <section id="addToHomeScreen d-none">
                     <h1>Install App</h1>
                     <img src="assets/android-chrome-192x192.png" alt="NCC CS" />
                     Add our app to your home screen?<br />
@@ -22,7 +21,17 @@
                 </section>
             </div>
         </div>
+		<nav class="navbar navbar-light bg-dark">
+		  <form class="form-inline">
+			<button class="btn btn-outline-danger" type="button">Home</button>
+			<button class="btn btn-sm btn-outline-warning" type="button">Goals</button>
+			<button class="btn btn-sm btn-outline-warning" type="button">Achievements</button>
+			<button class="btn btn-sm btn-outline-warning" type="button">Friends</button>
+		  </form>
+		</nav>
     </body>
+	<script src="js/gps.js"></script>
+	<script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
