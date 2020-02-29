@@ -14,8 +14,8 @@ function GPS()
 					var R = 6371e3; // metres
 					var φ1 = this.currentLat.toRadians();
 					var φ2 = position.coords.latitude.toRadians();
-					var Δφ = (position.coords.latitude-this.currentLat).toRadians();
-					var Δλ = (position.coords.longitude-this.currentLong).toRadians();
+					var Δφ = (position.coords.latitude - this.currentLat).toRadians();
+					var Δλ = (position.coords.longitude - this.currentLong).toRadians();
 
 					var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
 							Math.cos(φ1) * Math.cos(φ2) *
@@ -25,6 +25,10 @@ function GPS()
 					var d = R * c;
 					alert(d);
 				}
+				document.querySelector('#oldlong').textContent = this.currentLong;
+				document.querySelector('#oldlat').textContent = this.currentLat;
+				document.querySelector('#newlong').textContent = position.coords.longitude;
+				document.querySelector('#newlat').textContent = position.coords.latitude;
 				this.currentLat = position.coords.latitude;
 				this.currentLong = position.coords.longitude;
 			}
