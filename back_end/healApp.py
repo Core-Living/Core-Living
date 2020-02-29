@@ -1,4 +1,3 @@
-from myMap import myMap
 import user
 import random
 import os
