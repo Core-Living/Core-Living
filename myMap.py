@@ -2,19 +2,13 @@
 #
 class myMap:
 	class Node:
-		def __init__(self, Key, Value, Left = None, Right = None):
+		def __init__(self, Key = None, Value = None, Left = None, Right = None):
 			self.Key = Key
 			self.Value = Value
 			self.Left = Left
 			self.Right = Right
-			
-		def __init__(self):
-			Root = Node(None, None)
-			
-		def __init__(self, other):
-			
-			insert(other.Root.Key, other.Root.Value)
-	
+		def __init__(self, Key = None, Value = None):
+			self.Root = Node(Key, Value)
 	
 	def _insert(curNode, newKey, newVal):
 		# if we find the key, insert
