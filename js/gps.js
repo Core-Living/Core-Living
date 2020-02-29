@@ -2,8 +2,7 @@ function GPS()
 {
 	this.currentLat = null;
 	this.currentLong = null;
-	this.state = null
-	let permission = PermissionStatus.state;
+	this.state = null;
 	this.update = () =>
 	{
 		if ("geolocation" in navigator) {
