@@ -54,7 +54,7 @@ function recordExercise(Person, Exercise) {
     if (exerciseMap.has(Exercise.name)) {
         Person.currentCalorie += exerciseMap[Exercise.name] * Person.weight;
     } else {
-        alert(new MessageEvent("Exercise has Not Been Added Please Update First"));
+        alert("Exercise has Not Been Added Please Update First");
     }
 }
 
@@ -62,7 +62,7 @@ function expandExerciseList(calPerPoundPerMin, name) {
     if (!exerciseMap.has(name)) {
         exerciseMap[name] = calPerPoundPerMin;
     } else {
-        alert(new MessageEvent("Exercise is Already Available"));
+        alert("Exercise is Already Available");
     }
 }
 
