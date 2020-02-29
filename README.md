@@ -4,3 +4,5 @@ This Project is Dedicated to making a health and social media app that encourage
 
 The project will also focus on providing others with an accessible and easy-to-use health application, that will provide rewarding experiences for achieving fitness goals
 
+# Credits 
+  - alarm.mp3 is provided by zapsplat.com
