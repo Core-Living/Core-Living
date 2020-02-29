@@ -39,12 +39,10 @@ let newGPS = new GPS();
 window.onload = function(){
 	setInterval(()=>{ 
 		if ("geolocation" in navigator) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				newGPS.update();
-			});
+			newGPS.update();
 		} 
 		else {
 		 /*geolocation IS NOT available*/ 
 		}
-	}, 30000);
+	}, 5000);
 };
