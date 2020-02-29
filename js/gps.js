@@ -11,24 +11,24 @@ function GPS()
 			{
 				if(this.currentLat != null && this.currentLong != null)
 				{
-					//var R = 6371e3; // metres
-					//var φ1 = this.currentLat.toRadians();
-					//var φ2 = position.coords.latitude.toRadians();
-					//var Δφ = (position.coords.latitude - this.currentLat).toRadians();
-					//var Δλ = (position.coords.longitude - this.currentLong).toRadians();
+					var R = 6371e3; // metres
+					var lat1Rad = this.currentLat.toRadians();
+					var lat2Rad = position.coords.latitude.toRadians();
+					var sub1Rad = (position.coords.latitude - this.currentLat).toRadians();
+					var sub2Rad = (position.coords.longitude - this.currentLong).toRadians();
 
-					//var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-							//Math.cos(φ1) * Math.cos(φ2) *
-							//Math.sin(Δλ/2) * Math.sin(Δλ/2);
-					//var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+					var a = Math.sin(sub1Rad/2) * Math.sin(sub1Rad/2) +
+							Math.cos(lat1Rad) * Math.cos(lat2Rad) *
+							Math.sin(sub2Rad/2) * Math.sin(sub2Rad/2);
+					var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-					//var d = R * c;
-					//alert(d);
+					var d = R * c;
 				}
 				document.querySelector('#oldlong').textContent = this.currentLong;
 				document.querySelector('#oldlat').textContent = this.currentLat;
 				document.querySelector('#newlong').textContent = position.coords.longitude;
 				document.querySelector('#newlat').textContent = position.coords.latitude;
+				console.log("here");
 				this.currentLat = position.coords.latitude;
 				this.currentLong = position.coords.longitude;
 			}
