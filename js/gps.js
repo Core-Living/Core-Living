@@ -1,31 +1,30 @@
 function GPS()
 {
-	this.currentLat = null;
-	this.currentLong = null;
-	this.distance = 0;
-	this.state = null;
+	distance = 0;
+	currentLat = null;
+	currentLong = null;
 	this.update = () =>
 	{
 		if ("geolocation" in navigator) {
 			navigator.geolocation.getCurrentPosition(function(position) {
-			if(position.coords.latitude != this.currentLat || position.coords.longitude != this.currentLong)
+			if(position.coords.latitude != currentLat || position.coords.longitude != currentLong)
 			{
-				if(this.currentLat != null && this.currentLong != null)
+				if(currentLat != null && currentLong != null)
 				{
 					let latToMeter = 110574;
 					let lngToMeter = 111320;
-					let latRad = Math.toRadians(this.currentLat);
-					let latMeterDistance = latToMeter * (this.currentLat - position.coords.latitude);
-					let lngMeterDistance = lngToMeter * (this.currentLong - position.coords.longitude) * Math.cos(latRad);
-					this.distance = Math.sqrt(latMeterDistance * latMeterDistance + lngMeterDistance * lngMeterDistance);	
+					let latRad = currentLat * (Math.PI / 180);
+					let latMeterDistance = latToMeter * (currentLat - position.coords.latitude);
+					let lngMeterDistance = lngToMeter * (currentLong - position.coords.longitude) * Math.cos(latRad);
+					distance = Math.sqrt(latMeterDistance * latMeterDistance + lngMeterDistance * lngMeterDistance);	
 				}
-				document.querySelector('#oldlong').textContent = this.currentLong;
-				document.querySelector('#oldlat').textContent = this.currentLat;
+				document.querySelector('#oldlong').textContent = currentLong;
+				document.querySelector('#oldlat').textContent = currentLat;
 				document.querySelector('#newlong').textContent = position.coords.longitude;
 				document.querySelector('#newlat').textContent = position.coords.latitude;
-				document.querySelector('#distance').textContent = this.distance;
-				this.currentLat = position.coords.latitude;
-				this.currentLong = position.coords.longitude;
+				document.querySelector('#distance').textContent = distance;
+				currentLat = position.coords.latitude;
+				currentLong = position.coords.longitude;
 			}
 			});	
 		}
