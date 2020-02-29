@@ -1,8 +1,8 @@
-function GPS()
+function GPS(StartDistance)
 {
-	distance = 0;
 	currentLat = null;
 	currentLong = null;
+	distance = StartDistance;
 	this.update = () =>
 	{
 		if ("geolocation" in navigator) {
@@ -11,20 +11,20 @@ function GPS()
 			{
 				if(currentLat != null && currentLong != null)
 				{
-					let latToMeter = 110574;
-					let lngToMeter = 111320;
+					let latToMiles = 69;
+					let lngToMiles = 69.172;
 					let latRad = currentLat * (Math.PI / 180);
-					let latMeterDistance = latToMeter * (currentLat - position.coords.latitude);
-					let lngMeterDistance = lngToMeter * (currentLong - position.coords.longitude) * Math.cos(latRad);
-					distance = Math.sqrt(latMeterDistance * latMeterDistance + lngMeterDistance * lngMeterDistance);	
+					let latMilesDistance = latToMiles * (currentLat - position.coords.latitude);
+					let lngMilesDistance = lngToMiles * (currentLong - position.coords.longitude) * Math.cos(latRad);
+					distance += Math.sqrt(latMilesDistance.toFixed(22) * latMilesDistance.toFixed(22) + lngMilesDistance.toFixed(22) * lngMilesDistance.toFixed(22));	
 				}
-				document.querySelector('#oldlong').textContent = currentLong;
-				document.querySelector('#oldlat').textContent = currentLat;
-				document.querySelector('#newlong').textContent = position.coords.longitude;
-				document.querySelector('#newlat').textContent = position.coords.latitude;
-				document.querySelector('#distance').textContent = distance;
-				currentLat = position.coords.latitude;
-				currentLong = position.coords.longitude;
+                else
+                {
+                    currentLat = position.coords.latitude;
+                    currentLong = position.coords.longitude;
+                }
+				let tempNumber = distance.toFixed(2);
+				document.querySelector('#distance').textContent =  tempNumber + " Miles";
 			}
 			});	
 		}
