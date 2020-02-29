@@ -2,7 +2,7 @@ function GPS()
 {
 	this.currentLat = null;
 	this.currentLong = null;
-	this.d = 0;
+	this.diistance = 0;
 	this.state = null;
 	this.update = () =>
 	{
@@ -12,24 +12,18 @@ function GPS()
 			{
 				if(this.currentLat != null && this.currentLong != null)
 				{
-					let R = 6371000; // metres
-					let lat1Rad = this.currentLat.toRadians();
-					let lat2Rad = position.coords.latitude.toRadians();
-					let sub1Rad = (position.coords.latitude - this.currentLat).toRadians();
-					let sub2Rad = (position.coords.longitude - this.currentLong).toRadians();
-
-					let a = Math.sin(sub1Rad/2) * Math.sin(sub1Rad/2) +
-							Math.cos(lat1Rad) * Math.cos(lat2Rad) *
-							Math.sin(sub2Rad/2) * Math.sin(sub2Rad/2);
-					let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-					this.d = R * c;
+					let latToMeter = 110574;
+					let lngToMeter = 111320;
+					let latRad = Math.toRadians(this.currentLat);
+					let latMeterDistance = latToMeter * (this.currentLat - position.coords.latitude);
+					let lngMeterDistance = lngToMeter * (this.currentLong - position.coords.longitude) * Math.cos(latRad);
+					this.distance = Math.sqrt(latMeterDistance * latMeterDistance + lngMeterDistance * lngMeterDistance);	
 				}
 				document.querySelector('#oldlong').textContent = this.currentLong;
 				document.querySelector('#oldlat').textContent = this.currentLat;
 				document.querySelector('#newlong').textContent = position.coords.longitude;
 				document.querySelector('#newlat').textContent = position.coords.latitude;
-				document.querySelector('#distance').textContent = this.d;
+				document.querySelector('#distance').textContent = this.distance;
 				this.currentLat = position.coords.latitude;
 				this.currentLong = position.coords.longitude;
 			}
